@@ -3687,37 +3687,44 @@ entry:
   %vstart = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 6
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
-  %conv425 = and i64 %div16, 4294967295
-  %div61726 = lshr i64 %0, 2
-  %cmp27 = icmp ugt i64 %div61726, %conv425
-  br i1 %cmp27, label %for.body.lr.ph, label %for.end
+  %conv423 = and i64 %div16, 4294967295
+  %div61724 = lshr i64 %0, 2
+  %cmp25 = icmp ugt i64 %div61724, %conv423
+  br i1 %cmp25, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
+  %add.ptr8 = getelementptr i64, ptr %vs2, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.028 = phi i32 [ %conv3, %for.body.lr.ph ], [ %inc, %for.body ]
-  %3 = load <2 x i64>, ptr %vs2, align 8
-  %mul = shl i32 %i.028, 1
+  %i.026 = phi i32 [ %conv3, %for.body.lr.ph ], [ %inc, %for.body ]
+  %3 = load <8 x i8>, ptr %vs2, align 8
+  %round_key.sroa.0.0.vec.expand = shufflevector <8 x i8> %3, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %4 = load <8 x i8>, ptr %add.ptr8, align 8
+  %round_key.sroa.0.8.vec.expand = shufflevector <8 x i8> %4, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %round_key.sroa.0.8.vecblend = shufflevector <16 x i8> %round_key.sroa.0.0.vec.expand, <16 x i8> %round_key.sroa.0.8.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %mul = shl i32 %i.026, 1
   %idx.ext = zext i32 %mul to i64
   %add.ptr10 = getelementptr i64, ptr %vd, i64 %idx.ext
-  %4 = load i64, ptr %add.ptr10, align 8
-  %round_state.sroa.0.0.vec.insert = insertelement <2 x i64> poison, i64 %4, i64 0
+  %5 = load <8 x i8>, ptr %add.ptr10, align 8
+  %round_state.sroa.0.0.vec.expand = shufflevector <8 x i8> %5, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %add13 = or disjoint i32 %mul, 1
   %idx.ext14 = zext i32 %add13 to i64
   %add.ptr15 = getelementptr i64, ptr %vd, i64 %idx.ext14
-  %5 = load i64, ptr %add.ptr15, align 8
-  %round_state.sroa.0.8.vec.insert = insertelement <2 x i64> %round_state.sroa.0.0.vec.insert, i64 %5, i64 1
-  %xor.i24 = xor <2 x i64> %round_state.sroa.0.8.vec.insert, %3
-  %round_state.sroa.0.0.vec.extract = extractelement <2 x i64> %xor.i24, i64 0
-  store i64 %round_state.sroa.0.0.vec.extract, ptr %add.ptr10, align 8
-  %round_state.sroa.0.8.vec.extract = extractelement <2 x i64> %xor.i24, i64 1
-  store i64 %round_state.sroa.0.8.vec.extract, ptr %add.ptr15, align 8
-  %inc = add i32 %i.028, 1
+  %6 = load <8 x i8>, ptr %add.ptr15, align 8
+  %round_state.sroa.0.8.vec.expand = shufflevector <8 x i8> %6, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %round_state.sroa.0.8.vecblend = shufflevector <16 x i8> %round_state.sroa.0.0.vec.expand, <16 x i8> %round_state.sroa.0.8.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %xor.i = xor <16 x i8> %round_state.sroa.0.8.vecblend, %round_key.sroa.0.8.vecblend
+  %round_state.sroa.0.0.vec.extract.bc = bitcast <16 x i8> %xor.i to <2 x i64>
+  %round_state.sroa.0.0.vec.extract.extract = extractelement <2 x i64> %round_state.sroa.0.0.vec.extract.bc, i64 0
+  store i64 %round_state.sroa.0.0.vec.extract.extract, ptr %add.ptr10, align 8
+  %round_state.sroa.0.8.vec.extract.extract = extractelement <2 x i64> %round_state.sroa.0.0.vec.extract.bc, i64 1
+  store i64 %round_state.sroa.0.8.vec.extract.extract, ptr %add.ptr15, align 8
+  %inc = add i32 %i.026, 1
   %conv4 = zext i32 %inc to i64
-  %6 = load i64, ptr %vl1, align 16
-  %div617 = lshr i64 %6, 2
+  %7 = load i64, ptr %vl1, align 16
+  %div617 = lshr i64 %7, 2
   %cmp = icmp ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !44
 
@@ -3727,14 +3734,14 @@ for.end:                                          ; preds = %for.body, %entry
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %7 = shl i32 %desc, 18
-  %shr.i1.i.i = ashr i32 %7, 29
-  %8 = trunc i64 %env.val to i32
-  %9 = lshr i32 %8, 3
-  %sh_prom.i = and i32 %9, 7
+  %8 = shl i32 %desc, 18
+  %shr.i1.i.i = ashr i32 %8, 29
+  %9 = trunc i64 %env.val to i32
+  %10 = lshr i32 %9, 3
+  %sh_prom.i = and i32 %10, 7
   %reass.sub = sub nsw i32 %shr.i1.i.i, %sh_prom.i
-  %10 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
-  %cond.i = add nsw i32 %10, 2
+  %11 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
+  %cond.i = add nsw i32 %11, 2
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
