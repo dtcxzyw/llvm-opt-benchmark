@@ -376,17 +376,17 @@ if.then135:                                       ; preds = %do.end
   br i1 %cmp138170, label %while.body.preheader, label %if.end172
 
 while.body.preheader:                             ; preds = %if.then135
-  %42 = insertelement <2 x i32> poison, i32 %cond, i64 0
-  %43 = insertelement <2 x i32> %42, i32 %sub, i64 1
+  %42 = insertelement <2 x i32> poison, i32 %sub, i64 0
+  %43 = insertelement <2 x i32> %42, i32 %cond, i64 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %offsets.0171 = phi ptr [ %incdec.ptr169, %while.body ], [ %5, %while.body.preheader ]
   %44 = phi <2 x i32> [ %50, %while.body ], [ %43, %while.body.preheader ]
-  %45 = shufflevector <2 x i32> %44, <2 x i32> poison, <4 x i32> zeroinitializer
+  %45 = shufflevector <2 x i32> %44, <2 x i32> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %46 = add nsw <4 x i32> %45, <i32 1, i32 2, i32 3, i32 4>
   %incdec.ptr139 = getelementptr inbounds i8, ptr %offsets.0171, i64 4
-  %47 = extractelement <2 x i32> %44, i64 0
+  %47 = extractelement <2 x i32> %44, i64 1
   store i32 %47, ptr %offsets.0171, align 4
   %48 = add nsw <4 x i32> %45, <i32 5, i32 6, i32 7, i32 8>
   %incdec.ptr147 = getelementptr inbounds i8, ptr %offsets.0171, i64 20
@@ -405,13 +405,13 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %inc164, ptr %incdec.ptr165, align 4
   %incdec.ptr169 = getelementptr inbounds i8, ptr %offsets.0171, i64 64
   store i32 %inc166, ptr %incdec.ptr167, align 4
-  %50 = add nsw <2 x i32> %44, <i32 16, i32 -1>
-  %51 = extractelement <2 x i32> %44, i64 1
+  %50 = add nsw <2 x i32> %44, <i32 -1, i32 16>
+  %51 = extractelement <2 x i32> %44, i64 0
   %cmp138 = icmp ugt i32 %51, 1
   br i1 %cmp138, label %while.body, label %if.end172.loopexit, !llvm.loop !10
 
 if.end172.loopexit:                               ; preds = %while.body
-  %52 = extractelement <2 x i32> %50, i64 0
+  %52 = extractelement <2 x i32> %50, i64 1
   br label %if.end172
 
 if.end172:                                        ; preds = %if.end172.loopexit, %if.then135, %do.end, %if.end17

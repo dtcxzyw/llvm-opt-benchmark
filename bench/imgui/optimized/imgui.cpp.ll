@@ -48556,29 +48556,29 @@ if.then6:                                         ; preds = %if.end2
 sw.bb.i:                                          ; preds = %if.then6
   %KeyRepeatRate.i = getelementptr inbounds i8, ptr %0, i64 116
   %9 = load float, ptr %KeyRepeatRate.i, align 4
-  %10 = insertelement <2 x float> poison, float %8, i64 0
-  %11 = insertelement <2 x float> %10, float %9, i64 1
-  %12 = fmul <2 x float> %11, <float 0x3FE70A3D80000000, float 0x3FE99999A0000000>
+  %10 = insertelement <2 x float> poison, float %9, i64 0
+  %11 = insertelement <2 x float> %10, float %8, i64 1
+  %12 = fmul <2 x float> %11, <float 0x3FE99999A0000000, float 0x3FE70A3D80000000>
   br label %_ZN5ImGui22GetTypematicRepeatRateEiPfS0_.exit
 
 sw.bb3.i:                                         ; preds = %if.then6
   %KeyRepeatRate8.i = getelementptr inbounds i8, ptr %0, i64 116
   %13 = load float, ptr %KeyRepeatRate8.i, align 4
-  %14 = insertelement <2 x float> poison, float %8, i64 0
-  %15 = insertelement <2 x float> %14, float %13, i64 1
-  %16 = fmul <2 x float> %15, <float 0x3FE70A3D80000000, float 0x3FD3333340000000>
+  %14 = insertelement <2 x float> poison, float %13, i64 0
+  %15 = insertelement <2 x float> %14, float %8, i64 1
+  %16 = fmul <2 x float> %15, <float 0x3FD3333340000000, float 0x3FE70A3D80000000>
   br label %_ZN5ImGui22GetTypematicRepeatRateEiPfS0_.exit
 
 sw.default.i:                                     ; preds = %if.then6
   %KeyRepeatRate15.i = getelementptr inbounds i8, ptr %0, i64 116
   %17 = load float, ptr %KeyRepeatRate15.i, align 4
-  %18 = insertelement <2 x float> poison, float %8, i64 0
-  %19 = insertelement <2 x float> %18, float %17, i64 1
+  %18 = insertelement <2 x float> poison, float %17, i64 0
+  %19 = insertelement <2 x float> %18, float %8, i64 1
   br label %_ZN5ImGui22GetTypematicRepeatRateEiPfS0_.exit
 
 _ZN5ImGui22GetTypematicRepeatRateEiPfS0_.exit:    ; preds = %sw.bb.i, %sw.bb3.i, %sw.default.i
   %20 = phi <2 x float> [ %19, %sw.default.i ], [ %16, %sw.bb3.i ], [ %12, %sw.bb.i ]
-  %21 = extractelement <2 x float> %20, i64 0
+  %21 = extractelement <2 x float> %20, i64 1
   %cmp7 = fcmp ogt float %7, %21
   br i1 %cmp7, label %land.rhs, label %return
 
@@ -48650,7 +48650,7 @@ if.end.i.i10:                                     ; preds = %if.end.i
   br i1 %cmp1.i.i, label %if.end3.i.i, label %return
 
 if.end3.i.i:                                      ; preds = %if.end.i.i10
-  %30 = extractelement <2 x float> %20, i64 1
+  %30 = extractelement <2 x float> %20, i64 0
   %cmp4.i.i = fcmp ugt float %30, 0.000000e+00
   %cmp9.i.i = fcmp olt float %sub.i, %21
   br i1 %cmp4.i.i, label %_ZN5ImGui19GetKeyPressedAmountE8ImGuiKeyff.exit, label %if.then5.i.i
@@ -48663,10 +48663,10 @@ if.then5.i.i:                                     ; preds = %if.end3.i.i
 _ZN5ImGui19GetKeyPressedAmountE8ImGuiKeyff.exit:  ; preds = %if.end3.i.i
   %32 = insertelement <2 x float> poison, float %28, i64 0
   %33 = insertelement <2 x float> %32, float %sub.i, i64 1
-  %34 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
+  %34 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %35 = fsub <2 x float> %33, %34
   %cmp11.i.i = fcmp olt float %28, %21
-  %36 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %36 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
   %37 = fdiv <2 x float> %35, %36
   %38 = fptosi <2 x float> %37 to <2 x i32>
   %39 = insertelement <2 x i1> poison, i1 %cmp11.i.i, i64 0

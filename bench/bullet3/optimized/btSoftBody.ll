@@ -43923,8 +43923,8 @@ _Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit: ; preds = %entry
 
 if.then:                                          ; preds = %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
   store float %10, ptr %Sigma, align 4
-  %13 = insertelement <2 x float> poison, float %12, i64 0
-  %14 = insertelement <2 x float> %13, float %10, i64 1
+  %13 = insertelement <2 x float> poison, float %10, i64 0
+  %14 = insertelement <2 x float> %13, float %12, i64 1
   br label %if.end35
 
 if.else:                                          ; preds = %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
@@ -43951,35 +43951,35 @@ if.then9:                                         ; preds = %if.else
   %mul22 = fmul float %mul21, %mul19
   %mul23 = fmul float %11, %mul22
   %neg = fneg float %mul23
-  %18 = insertelement <2 x float> poison, float %div18, i64 0
-  %19 = insertelement <2 x float> %18, float %mul19, i64 1
+  %18 = insertelement <2 x float> poison, float %mul19, i64 0
+  %19 = insertelement <2 x float> %18, float %div18, i64 1
   %20 = fmul <2 x float> %19, %19
   %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %22 = insertelement <2 x float> poison, float %10, i64 0
   %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> zeroinitializer
-  %24 = insertelement <2 x float> poison, float %mul23, i64 0
-  %25 = insertelement <2 x float> %24, float %neg, i64 1
+  %24 = insertelement <2 x float> poison, float %neg, i64 0
+  %25 = insertelement <2 x float> %24, float %mul23, i64 1
   %26 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %21, <2 x float> %23, <2 x float> %25)
   %27 = insertelement <2 x float> poison, float %12, i64 0
   %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
   %29 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %20, <2 x float> %28, <2 x float> %26)
-  %30 = extractelement <2 x float> %29, i64 1
+  %30 = extractelement <2 x float> %29, i64 0
   store float %30, ptr %Sigma, align 4
   br label %if.end35
 
 if.else31:                                        ; preds = %if.else
   store float %10, ptr %Sigma, align 4
-  %31 = insertelement <2 x float> poison, float %12, i64 0
-  %32 = insertelement <2 x float> %31, float %10, i64 1
+  %31 = insertelement <2 x float> poison, float %10, i64 0
+  %32 = insertelement <2 x float> %31, float %12, i64 1
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then9, %if.else31, %if.then
   %sine.0 = phi float [ %mul19, %if.then9 ], [ 0.000000e+00, %if.else31 ], [ 0.000000e+00, %if.then ]
   %cosine.0 = phi float [ %div18, %if.then9 ], [ 1.000000e+00, %if.else31 ], [ 1.000000e+00, %if.then ]
   %33 = phi <2 x float> [ %29, %if.then9 ], [ %32, %if.else31 ], [ %14, %if.then ]
-  %34 = extractelement <2 x float> %33, i64 0
+  %34 = extractelement <2 x float> %33, i64 1
   store float %34, ptr %m_11.i, align 4
-  %35 = extractelement <2 x float> %33, i64 1
+  %35 = extractelement <2 x float> %33, i64 0
   %cmp38 = fcmp olt float %35, %34
   br i1 %cmp38, label %if.then39, label %if.end46
 

@@ -1502,7 +1502,7 @@ for.body151:                                      ; preds = %for.body151.lr.ph, 
   %rotMatrix.sroa.49.0413 = phi float [ 0.000000e+00, %for.body151.lr.ph ], [ %rotMatrix.sroa.49.1, %for.inc210 ]
   %63 = phi <2 x float> [ zeroinitializer, %for.body151.lr.ph ], [ %190, %for.inc210 ]
   %64 = phi <2 x float> [ <float 1.000000e+00, float 0.000000e+00>, %for.body151.lr.ph ], [ %191, %for.inc210 ]
-  %65 = phi <4 x float> [ <float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, %for.body151.lr.ph ], [ %192, %for.inc210 ]
+  %65 = phi <4 x float> [ <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, %for.body151.lr.ph ], [ %192, %for.inc210 ]
   %add.ptr.i133 = getelementptr inbounds i32, ptr %62, i64 %conv147418
   %66 = load i32, ptr %add.ptr.i133, align 4
   switch i32 %66, label %for.inc210 [
@@ -1523,44 +1523,46 @@ invoke.cont166:                                   ; preds = %for.body151
   %call.i7.i = call noundef float @sinf(float noundef %div165) #20
   %fneg.i = fneg float %call.i7.i
   %70 = extractelement <2 x float> %63, i64 1
+  %mul3.i = fmul float %70, 0.000000e+00
   %71 = extractelement <4 x float> %65, i64 0
+  %72 = fadd float %71, %mul3.i
   %mul7.i = fmul float %70, %call.i.i140
-  %72 = call float @llvm.fmuladd.f32(float %71, float 0.000000e+00, float %mul7.i)
-  %73 = extractelement <4 x float> %65, i64 2
+  %73 = call float @llvm.fmuladd.f32(float %71, float 0.000000e+00, float %mul7.i)
   %74 = extractelement <4 x float> %65, i64 1
-  %75 = shufflevector <2 x float> %63, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %76 = insertelement <2 x float> %75, float %73, i64 1
-  %77 = fmul <2 x float> %76, zeroinitializer
-  %78 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %79 = fadd <2 x float> %78, %77
-  %mul32.i = fmul float %73, %fneg.i
-  %80 = call float @llvm.fmuladd.f32(float %74, float 0.000000e+00, float %mul32.i)
-  %81 = call float @llvm.fmuladd.f32(float %call.i.i140, float %rotMatrix.sroa.49.0413, float %80)
-  %82 = extractelement <4 x float> %65, i64 3
-  %mul39.i = fmul float %82, 0.000000e+00
-  %83 = extractelement <2 x float> %63, i64 0
-  %84 = fadd float %83, %mul39.i
-  %85 = insertelement <2 x float> %64, float %call.i7.i, i64 1
-  %86 = insertelement <2 x float> %64, float 0.000000e+00, i64 0
-  %87 = insertelement <2 x float> poison, float %84, i64 0
-  %88 = insertelement <2 x float> %87, float %72, i64 1
-  %89 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %85, <2 x float> %86, <2 x float> %88)
-  %90 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  %91 = insertelement <2 x float> poison, float %call.i.i140, i64 0
-  %92 = shufflevector <2 x float> %91, <2 x float> poison, <2 x i32> zeroinitializer
-  %93 = fmul <2 x float> %90, %92
-  %94 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %95 = shufflevector <2 x float> %94, <2 x float> %63, <2 x i32> <i32 0, i32 2>
-  %96 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %95, <2 x float> zeroinitializer, <2 x float> %93)
-  %97 = shufflevector <2 x float> %64, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
-  %98 = insertelement <4 x float> %97, float %rotMatrix.sroa.49.0413, i64 1
-  %99 = insertelement <4 x float> %98, float %call.i7.i, i64 2
-  %100 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
-  %101 = shufflevector <4 x float> <float 0.000000e+00, float 0.000000e+00, float poison, float poison>, <4 x float> %97, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
-  %102 = insertelement <4 x float> %101, float %rotMatrix.sroa.49.0413, i64 2
-  %103 = shufflevector <2 x float> %79, <2 x float> %96, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %104 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %100, <4 x float> %102, <4 x float> %103)
-  %105 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
+  %mul18.i = fmul float %74, 0.000000e+00
+  %75 = extractelement <4 x float> %65, i64 3
+  %76 = fadd float %75, %mul18.i
+  %mul32.i = fmul float %74, %fneg.i
+  %77 = call float @llvm.fmuladd.f32(float %75, float 0.000000e+00, float %mul32.i)
+  %78 = call float @llvm.fmuladd.f32(float %call.i.i140, float %rotMatrix.sroa.49.0413, float %77)
+  %79 = extractelement <4 x float> %65, i64 2
+  %mul39.i = fmul float %79, 0.000000e+00
+  %80 = extractelement <2 x float> %63, i64 0
+  %81 = fadd float %80, %mul39.i
+  %82 = insertelement <2 x float> %64, float %call.i7.i, i64 1
+  %83 = insertelement <2 x float> %64, float 0.000000e+00, i64 0
+  %84 = insertelement <2 x float> poison, float %81, i64 0
+  %85 = insertelement <2 x float> %84, float %73, i64 1
+  %86 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %82, <2 x float> %83, <2 x float> %85)
+  %87 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 1, i32 2>
+  %88 = insertelement <2 x float> poison, float %call.i.i140, i64 0
+  %89 = shufflevector <2 x float> %88, <2 x float> poison, <2 x i32> zeroinitializer
+  %90 = fmul <2 x float> %87, %89
+  %91 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
+  %92 = shufflevector <2 x float> %91, <2 x float> %63, <2 x i32> <i32 0, i32 2>
+  %93 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %92, <2 x float> zeroinitializer, <2 x float> %90)
+  %94 = shufflevector <2 x float> %64, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 0, i32 poison>
+  %95 = insertelement <4 x float> %94, float %call.i7.i, i64 1
+  %96 = insertelement <4 x float> %95, float %rotMatrix.sroa.49.0413, i64 3
+  %97 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 3>
+  %98 = shufflevector <4 x float> <float 0.000000e+00, float poison, float poison, float 0.000000e+00>, <4 x float> %94, <4 x i32> <i32 0, i32 poison, i32 6, i32 3>
+  %99 = insertelement <4 x float> %98, float %rotMatrix.sroa.49.0413, i64 1
+  %100 = insertelement <4 x float> poison, float %72, i64 0
+  %101 = shufflevector <2 x float> %93, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %102 = shufflevector <4 x float> %100, <4 x float> %101, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %103 = insertelement <4 x float> %102, float %76, i64 3
+  %104 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %97, <4 x float> %99, <4 x float> %103)
+  %105 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %106 = shufflevector <2 x float> %105, <2 x float> %63, <2 x i32> <i32 0, i32 3>
   %107 = insertelement <2 x float> poison, float %fneg.i, i64 0
   %108 = shufflevector <2 x float> %107, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1568,7 +1570,7 @@ invoke.cont166:                                   ; preds = %for.body151
   %110 = shufflevector <2 x float> %63, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
   %111 = shufflevector <4 x float> %110, <4 x float> %65, <2 x i32> <i32 0, i32 4>
   %112 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %111, <2 x float> zeroinitializer, <2 x float> %109)
-  %113 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %92, <2 x float> %64, <2 x float> %112)
+  %113 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %89, <2 x float> %64, <2 x float> %112)
   br label %for.inc210
 
 sw.bb172:                                         ; preds = %for.body151
@@ -1582,29 +1584,29 @@ sw.bb172:                                         ; preds = %for.body151
   %call.i.i170 = call noundef float @cosf(float noundef %div183) #20
   %call.i7.i171 = call noundef float @sinf(float noundef %div183) #20
   %fneg.i173 = fneg float %call.i7.i171
-  %117 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
+  %117 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %118 = shufflevector <2 x float> %117, <2 x float> %63, <2 x i32> <i32 0, i32 3>
   %119 = fmul <2 x float> %118, zeroinitializer
-  %120 = extractelement <4 x float> %65, i64 2
+  %120 = extractelement <4 x float> %65, i64 1
   %mul18.i206 = fmul float %120, 0.000000e+00
-  %121 = extractelement <4 x float> %65, i64 1
+  %121 = extractelement <4 x float> %65, i64 3
   %122 = call float @llvm.fmuladd.f32(float %call.i7.i171, float %121, float %mul18.i206)
   %123 = call float @llvm.fmuladd.f32(float %call.i.i170, float %rotMatrix.sroa.49.0413, float %122)
-  %124 = shufflevector <2 x float> %63, <2 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>
+  %124 = shufflevector <2 x float> %63, <2 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 poison>
   %125 = insertelement <4 x float> %124, float %call.i.i170, i64 0
-  %126 = shufflevector <4 x float> %125, <4 x float> %65, <4 x i32> <i32 0, i32 poison, i32 5, i32 3>
-  %127 = shufflevector <4 x float> %126, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 3>
-  %128 = shufflevector <4 x float> %65, <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %126 = shufflevector <4 x float> %125, <4 x float> %65, <4 x i32> <i32 0, i32 7, i32 2, i32 poison>
+  %127 = shufflevector <4 x float> %126, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %128 = shufflevector <4 x float> %65, <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float poison>, <4 x i32> <i32 0, i32 5, i32 6, i32 3>
   %129 = shufflevector <2 x float> %119, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %130 = shufflevector <4 x float> %129, <4 x float> %65, <4 x i32> <i32 0, i32 poison, i32 6, i32 7>
-  %131 = insertelement <4 x float> %130, float %mul18.i206, i64 1
+  %130 = shufflevector <4 x float> %129, <4 x float> %65, <4 x i32> <i32 0, i32 5, i32 6, i32 poison>
+  %131 = insertelement <4 x float> %130, float %mul18.i206, i64 3
   %132 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %127, <4 x float> %128, <4 x float> %131)
-  %133 = shufflevector <2 x float> %64, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
+  %133 = shufflevector <2 x float> %64, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 0, i32 poison>
   %134 = insertelement <4 x float> %133, float %fneg.i173, i64 0
-  %135 = insertelement <4 x float> %134, float %rotMatrix.sroa.49.0413, i64 2
-  %136 = shufflevector <4 x float> %135, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 3>
-  %137 = shufflevector <4 x float> %133, <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <4 x i32> <i32 0, i32 poison, i32 6, i32 7>
-  %138 = insertelement <4 x float> %137, float %rotMatrix.sroa.49.0413, i64 1
+  %135 = insertelement <4 x float> %134, float %rotMatrix.sroa.49.0413, i64 1
+  %136 = shufflevector <4 x float> %135, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %137 = shufflevector <4 x float> %133, <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float poison>, <4 x i32> <i32 0, i32 5, i32 6, i32 poison>
+  %138 = insertelement <4 x float> %137, float %rotMatrix.sroa.49.0413, i64 3
   %139 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %136, <4 x float> %138, <4 x float> %132)
   %140 = insertelement <4 x float> poison, float %call.i.i170, i64 0
   %141 = shufflevector <4 x float> %140, <4 x float> %65, <2 x i32> <i32 0, i32 4>
@@ -1633,28 +1635,28 @@ sw.bb190:                                         ; preds = %for.body151
   %call.i.i228 = call noundef float @cosf(float noundef %div201) #20
   %call.i7.i229 = call noundef float @sinf(float noundef %div201) #20
   %fneg.i231 = fneg float %call.i7.i229
-  %157 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
+  %157 = shufflevector <4 x float> %65, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %158 = shufflevector <2 x float> %157, <2 x float> %63, <2 x i32> <i32 0, i32 3>
   %159 = fmul <2 x float> %158, zeroinitializer
-  %160 = extractelement <4 x float> %65, i64 2
+  %160 = extractelement <4 x float> %65, i64 1
   %mul32.i266 = fmul float %160, 0.000000e+00
-  %161 = extractelement <4 x float> %65, i64 1
+  %161 = extractelement <4 x float> %65, i64 3
   %162 = call float @llvm.fmuladd.f32(float %161, float 0.000000e+00, float %mul32.i266)
   %163 = fadd float %rotMatrix.sroa.49.0413, %162
-  %164 = shufflevector <2 x float> %63, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
-  %165 = shufflevector <4 x float> %164, <4 x float> %65, <4 x i32> <i32 0, i32 6, i32 6, i32 7>
+  %164 = shufflevector <2 x float> %63, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 0, i32 poison>
+  %165 = shufflevector <4 x float> %164, <4 x float> %65, <4 x i32> <i32 0, i32 5, i32 6, i32 5>
   %166 = insertelement <4 x float> poison, float %call.i7.i229, i64 0
   %167 = insertelement <4 x float> %166, float %call.i.i228, i64 1
-  %168 = shufflevector <4 x float> %167, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
+  %168 = shufflevector <4 x float> %167, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 0>
   %169 = fmul <4 x float> %165, %168
   %170 = shufflevector <4 x float> %167, <4 x float> poison, <2 x i32> <i32 1, i32 poison>
   %171 = insertelement <2 x float> %170, float %fneg.i231, i64 1
-  %172 = shufflevector <2 x float> %171, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
-  %173 = shufflevector <4 x float> %164, <4 x float> %65, <4 x i32> <i32 4, i32 5, i32 5, i32 3>
+  %172 = shufflevector <2 x float> %171, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 0>
+  %173 = shufflevector <4 x float> %164, <4 x float> %65, <4 x i32> <i32 4, i32 7, i32 2, i32 7>
   %174 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %172, <4 x float> %173, <4 x float> %169)
-  %175 = shufflevector <2 x float> %64, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 0>
+  %175 = shufflevector <2 x float> %64, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 0, i32 poison>
   %176 = insertelement <4 x float> %175, float %rotMatrix.sroa.49.0413, i64 1
-  %177 = shufflevector <4 x float> %176, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 3>
+  %177 = shufflevector <4 x float> %176, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
   %178 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %177, <4 x float> zeroinitializer, <4 x float> %174)
   %179 = insertelement <2 x float> poison, float %call.i7.i229, i64 0
   %180 = insertelement <2 x float> %179, float %call.i.i228, i64 1
@@ -1670,8 +1672,8 @@ sw.bb190:                                         ; preds = %for.body151
   br label %for.inc210
 
 for.inc210:                                       ; preds = %sw.bb190, %sw.bb172, %invoke.cont166, %for.body151
-  %rotMatrix.sroa.49.1 = phi float [ %rotMatrix.sroa.49.0413, %for.body151 ], [ %163, %sw.bb190 ], [ %123, %sw.bb172 ], [ %81, %invoke.cont166 ]
-  %190 = phi <2 x float> [ %63, %for.body151 ], [ %188, %sw.bb190 ], [ %151, %sw.bb172 ], [ %89, %invoke.cont166 ]
+  %rotMatrix.sroa.49.1 = phi float [ %rotMatrix.sroa.49.0413, %for.body151 ], [ %163, %sw.bb190 ], [ %123, %sw.bb172 ], [ %78, %invoke.cont166 ]
+  %190 = phi <2 x float> [ %63, %for.body151 ], [ %188, %sw.bb190 ], [ %151, %sw.bb172 ], [ %86, %invoke.cont166 ]
   %191 = phi <2 x float> [ %64, %for.body151 ], [ %189, %sw.bb190 ], [ %153, %sw.bb172 ], [ %113, %invoke.cont166 ]
   %192 = phi <4 x float> [ %65, %for.body151 ], [ %178, %sw.bb190 ], [ %139, %sw.bb172 ], [ %104, %invoke.cont166 ]
   %inc211 = add i32 %channelIdx145.0417, 1
@@ -1686,12 +1688,13 @@ for.inc210:                                       ; preds = %sw.bb190, %sw.bb172
   br i1 %cmp150, label %for.body151, label %for.end212.loopexit, !llvm.loop !10
 
 for.end212.loopexit:                              ; preds = %for.inc210
-  %195 = extractelement <4 x float> %192, i64 3
-  %196 = extractelement <4 x float> %192, i64 2
+  %195 = extractelement <4 x float> %192, i64 2
+  %196 = extractelement <4 x float> %192, i64 1
   %197 = extractelement <4 x float> %192, i64 0
-  %198 = shufflevector <2 x float> %191, <2 x float> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
-  %199 = shufflevector <4 x float> %198, <4 x float> %192, <2 x i32> <i32 5, i32 1>
-  %200 = extractelement <2 x float> %191, i64 0
+  %198 = shufflevector <2 x float> %191, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %199 = shufflevector <4 x float> %192, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
+  %200 = shufflevector <2 x float> %198, <2 x float> %199, <2 x i32> <i32 0, i32 3>
+  %201 = extractelement <2 x float> %191, i64 0
   br label %for.end212
 
 for.end212:                                       ; preds = %for.end212.loopexit, %for.cond146.preheader
@@ -1699,11 +1702,11 @@ for.end212:                                       ; preds = %for.end212.loopexit
   %rotMatrix.sroa.41.0.lcssa = phi float [ 1.000000e+00, %for.cond146.preheader ], [ %196, %for.end212.loopexit ]
   %rotMatrix.sroa.49.0.lcssa = phi float [ 0.000000e+00, %for.cond146.preheader ], [ %rotMatrix.sroa.49.1, %for.end212.loopexit ]
   %rotMatrix.sroa.71.0.lcssa = phi float [ 0.000000e+00, %for.cond146.preheader ], [ %195, %for.end212.loopexit ]
-  %rotMatrix.sroa.82.0.lcssa = phi float [ 1.000000e+00, %for.cond146.preheader ], [ %200, %for.end212.loopexit ]
-  %201 = phi <2 x float> [ zeroinitializer, %for.cond146.preheader ], [ %190, %for.end212.loopexit ]
-  %202 = phi <2 x float> [ zeroinitializer, %for.cond146.preheader ], [ %199, %for.end212.loopexit ]
-  %203 = trunc i64 %indvars.iv439 to i32
-  %conv213 = uitofp i32 %203 to double
+  %rotMatrix.sroa.82.0.lcssa = phi float [ 1.000000e+00, %for.cond146.preheader ], [ %201, %for.end212.loopexit ]
+  %202 = phi <2 x float> [ zeroinitializer, %for.cond146.preheader ], [ %190, %for.end212.loopexit ]
+  %203 = phi <2 x float> [ zeroinitializer, %for.cond146.preheader ], [ %200, %for.end212.loopexit ]
+  %204 = trunc i64 %indvars.iv439 to i32
+  %conv213 = uitofp i32 %204 to double
   store double %conv213, ptr %rotkey.0430, align 8
   %add.i = fadd float %rotMatrix.sroa.0.0.lcssa, %rotMatrix.sroa.41.0.lcssa
   %add2.i = fadd float %add.i, %rotMatrix.sroa.82.0.lcssa
@@ -1713,20 +1716,20 @@ for.end212:                                       ; preds = %for.end212.loopexit
 if.then.i277:                                     ; preds = %for.end212
   %add3.i = fadd float %add2.i, 1.000000e+00
   %call.i.i278 = call noundef float @sqrtf(float noundef %add3.i) #20
-  %204 = insertelement <4 x float> poison, float %call.i.i278, i64 0
-  %205 = insertelement <4 x float> %204, float %rotMatrix.sroa.71.0.lcssa, i64 1
-  %206 = shufflevector <2 x float> %202, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %207 = shufflevector <4 x float> %205, <4 x float> %206, <4 x i32> <i32 0, i32 1, i32 5, i32 4>
-  %208 = insertelement <4 x float> <float 2.000000e+00, float poison, float poison, float poison>, float %rotMatrix.sroa.49.0.lcssa, i64 1
-  %209 = shufflevector <2 x float> %201, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %210 = shufflevector <4 x float> %208, <4 x float> %209, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %211 = fmul <4 x float> %207, %210
-  %212 = fsub <4 x float> %207, %210
-  %213 = shufflevector <4 x float> %211, <4 x float> %212, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
-  %214 = shufflevector <4 x float> %213, <4 x float> <float 2.500000e-01, float poison, float poison, float poison>, <4 x i32> <i32 4, i32 0, i32 0, i32 0>
-  %215 = fmul <4 x float> %213, %214
-  %216 = fdiv <4 x float> %213, %214
-  %217 = shufflevector <4 x float> %215, <4 x float> %216, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
+  %205 = insertelement <4 x float> poison, float %call.i.i278, i64 0
+  %206 = insertelement <4 x float> %205, float %rotMatrix.sroa.71.0.lcssa, i64 1
+  %207 = shufflevector <2 x float> %203, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %208 = shufflevector <4 x float> %206, <4 x float> %207, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %209 = insertelement <4 x float> <float 2.000000e+00, float poison, float poison, float poison>, float %rotMatrix.sroa.49.0.lcssa, i64 1
+  %210 = shufflevector <2 x float> %202, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %211 = shufflevector <4 x float> %209, <4 x float> %210, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %212 = fmul <4 x float> %208, %211
+  %213 = fsub <4 x float> %208, %211
+  %214 = shufflevector <4 x float> %212, <4 x float> %213, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
+  %215 = shufflevector <4 x float> %214, <4 x float> <float 2.500000e-01, float poison, float poison, float poison>, <4 x i32> <i32 4, i32 0, i32 0, i32 0>
+  %216 = fmul <4 x float> %214, %215
+  %217 = fdiv <4 x float> %214, %215
+  %218 = shufflevector <4 x float> %216, <4 x float> %217, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
   br label %invoke.cont216
 
 if.else.i:                                        ; preds = %for.end212
@@ -1741,12 +1744,11 @@ if.then15.i:                                      ; preds = %if.else.i
   %sub22.i = fsub float %sub20.i, %rotMatrix.sroa.82.0.lcssa
   %call.i60.i = call noundef float @sqrtf(float noundef %sub22.i) #20
   %mul24.i = fmul float %call.i60.i, 2.000000e+00
-  %218 = shufflevector <2 x float> %201, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %219 = fadd <2 x float> %218, %202
+  %219 = fadd <2 x float> %202, %203
   %sub39.i = fsub float %rotMatrix.sroa.71.0.lcssa, %rotMatrix.sroa.49.0.lcssa
   %220 = insertelement <4 x float> poison, float %sub39.i, i64 0
   %221 = insertelement <4 x float> %220, float %mul24.i, i64 1
-  %222 = shufflevector <2 x float> %219, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %222 = shufflevector <2 x float> %219, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
   %223 = shufflevector <4 x float> %221, <4 x float> %222, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %224 = shufflevector <4 x float> %223, <4 x float> <float poison, float 2.500000e-01, float poison, float poison>, <4 x i32> <i32 1, i32 5, i32 1, i32 1>
   %225 = fdiv <4 x float> %223, %224
@@ -1764,19 +1766,18 @@ if.then46.i:                                      ; preds = %if.else42.i
   %sub53.i = fsub float %sub51.i, %rotMatrix.sroa.82.0.lcssa
   %call.i61.i = call noundef float @sqrtf(float noundef %sub53.i) #20
   %mul55.i = fmul float %call.i61.i, 2.000000e+00
-  %228 = shufflevector <2 x float> %202, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %add65.i = fadd float %rotMatrix.sroa.49.0.lcssa, %rotMatrix.sroa.71.0.lcssa
-  %229 = fsub <2 x float> %228, %201
-  %230 = fadd <2 x float> %228, %201
-  %231 = shufflevector <2 x float> %229, <2 x float> %230, <2 x i32> <i32 0, i32 3>
-  %232 = shufflevector <2 x float> %231, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %233 = insertelement <4 x float> %232, float 2.500000e-01, i64 2
-  %234 = insertelement <4 x float> %233, float %add65.i, i64 3
-  %235 = insertelement <4 x float> poison, float %mul55.i, i64 0
-  %236 = shufflevector <4 x float> %235, <4 x float> poison, <4 x i32> zeroinitializer
-  %237 = fdiv <4 x float> %234, %236
-  %238 = fmul <4 x float> %234, %236
-  %239 = shufflevector <4 x float> %237, <4 x float> %238, <4 x i32> <i32 0, i32 1, i32 6, i32 3>
+  %228 = fsub <2 x float> %203, %202
+  %229 = fadd <2 x float> %203, %202
+  %230 = shufflevector <2 x float> %228, <2 x float> %229, <2 x i32> <i32 0, i32 3>
+  %231 = shufflevector <2 x float> %230, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %232 = insertelement <4 x float> %231, float 2.500000e-01, i64 2
+  %233 = insertelement <4 x float> %232, float %add65.i, i64 3
+  %234 = insertelement <4 x float> poison, float %mul55.i, i64 0
+  %235 = shufflevector <4 x float> %234, <4 x float> poison, <4 x i32> zeroinitializer
+  %236 = fdiv <4 x float> %233, %235
+  %237 = fmul <4 x float> %233, %235
+  %238 = shufflevector <4 x float> %236, <4 x float> %237, <4 x i32> <i32 0, i32 1, i32 6, i32 3>
   br label %invoke.cont216
 
 if.else73.i:                                      ; preds = %if.else42.i
@@ -1785,30 +1786,29 @@ if.else73.i:                                      ; preds = %if.else42.i
   %sub80.i = fsub float %sub78.i, %rotMatrix.sroa.41.0.lcssa
   %call.i62.i = call noundef float @sqrtf(float noundef %sub80.i) #20
   %mul82.i = fmul float %call.i62.i, 2.000000e+00
-  %240 = shufflevector <2 x float> %201, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %add90.i = fadd float %rotMatrix.sroa.49.0.lcssa, %rotMatrix.sroa.71.0.lcssa
-  %241 = fsub <2 x float> %202, %240
-  %242 = fadd <2 x float> %202, %240
-  %243 = shufflevector <2 x float> %241, <2 x float> %242, <2 x i32> <i32 0, i32 3>
-  %244 = shufflevector <2 x float> %243, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %245 = insertelement <4 x float> %244, float 2.500000e-01, i64 3
-  %246 = insertelement <4 x float> %245, float %add90.i, i64 2
-  %247 = insertelement <4 x float> poison, float %mul82.i, i64 0
-  %248 = shufflevector <4 x float> %247, <4 x float> poison, <4 x i32> zeroinitializer
-  %249 = fdiv <4 x float> %246, %248
-  %250 = fmul <4 x float> %246, %248
-  %251 = shufflevector <4 x float> %249, <4 x float> %250, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
+  %239 = fsub <2 x float> %203, %202
+  %240 = fadd <2 x float> %203, %202
+  %241 = shufflevector <2 x float> %239, <2 x float> %240, <2 x i32> <i32 1, i32 2>
+  %242 = shufflevector <2 x float> %241, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %243 = insertelement <4 x float> %242, float 2.500000e-01, i64 3
+  %244 = insertelement <4 x float> %243, float %add90.i, i64 2
+  %245 = insertelement <4 x float> poison, float %mul82.i, i64 0
+  %246 = shufflevector <4 x float> %245, <4 x float> poison, <4 x i32> zeroinitializer
+  %247 = fdiv <4 x float> %244, %246
+  %248 = fmul <4 x float> %244, %246
+  %249 = shufflevector <4 x float> %247, <4 x float> %248, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   br label %invoke.cont216
 
 invoke.cont216:                                   ; preds = %if.else73.i, %if.then46.i, %if.then15.i, %if.then.i277
-  %252 = phi <4 x float> [ %217, %if.then.i277 ], [ %227, %if.then15.i ], [ %239, %if.then46.i ], [ %251, %if.else73.i ]
+  %250 = phi <4 x float> [ %218, %if.then.i277 ], [ %227, %if.then15.i ], [ %238, %if.then46.i ], [ %249, %if.else73.i ]
   %mValue217 = getelementptr inbounds i8, ptr %rotkey.0430, i64 8
-  store <4 x float> %252, ptr %mValue217, align 8
+  store <4 x float> %250, ptr %mValue217, align 8
   %incdec.ptr218 = getelementptr inbounds i8, ptr %rotkey.0430, i64 24
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
-  %253 = load i32, ptr %mAnimNumFrames, align 4
-  %254 = zext i32 %253 to i64
-  %cmp143 = icmp ult i64 %indvars.iv.next440, %254
+  %251 = load i32, ptr %mAnimNumFrames, align 4
+  %252 = zext i32 %251 to i64
+  %cmp143 = icmp ult i64 %indvars.iv.next440, %252
   br i1 %cmp143, label %for.cond146.preheader, label %for.end221, !llvm.loop !11
 
 for.end221:                                       ; preds = %invoke.cont216, %arrayctor.cont138.thread, %arrayctor.cont138
@@ -1823,36 +1823,36 @@ arrayctor.loop225.preheader:                      ; preds = %for.end221
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %mValue235, align 4
   %z.i288 = getelementptr inbounds i8, ptr %call223, i64 16
   store float 1.000000e+00, ptr %z.i288, align 4
-  %255 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN6Assimp9BVHLoader11ChannelTypeESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %channelMap, ptr noundef %255)
+  %253 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN6Assimp9BVHLoader11ChannelTypeESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %channelMap, ptr noundef %253)
           to label %_ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %arrayctor.loop225.preheader
-  %256 = landingpad { ptr, i32 }
+  %254 = landingpad { ptr, i32 }
           catch ptr null
-  %257 = extractvalue { ptr, i32 } %256, 0
-  call void @__clang_call_terminate(ptr %257) #24
+  %255 = extractvalue { ptr, i32 } %254, 0
+  call void @__clang_call_terminate(ptr %255) #24
   unreachable
 
 _ZNSt3mapIN6Assimp9BVHLoader11ChannelTypeEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit: ; preds = %arrayctor.loop225.preheader
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nodeName) #20
   %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442460, 1
   %.pre = load i32, ptr %mNumChannels.i, align 8
-  %258 = zext i32 %.pre to i64
-  %cmp15 = icmp ult i64 %indvars.iv.next443, %258
+  %256 = zext i32 %.pre to i64
+  %cmp15 = icmp ult i64 %indvars.iv.next443, %256
   br i1 %cmp15, label %for.body16, label %for.end240, !llvm.loop !12
 
 ehcleanup:                                        ; preds = %lpad37.loopexit, %lpad37.loopexit.split-lp.loopexit.split-lp, %lpad37.loopexit.split-lp.loopexit, %_ZNSt8_Rb_treeIN6Assimp9BVHLoader11ChannelTypeESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_Auto_nodeD2Ev.exit.i.i, %lpad68
   %.pn = phi { ptr, i32 } [ %38, %lpad68 ], [ %27, %_ZNSt8_Rb_treeIN6Assimp9BVHLoader11ChannelTypeESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_Auto_nodeD2Ev.exit.i.i ], [ %lpad.loopexit, %lpad37.loopexit ], [ %lpad.loopexit377, %lpad37.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp378, %lpad37.loopexit.split-lp.loopexit.split-lp ]
-  %259 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN6Assimp9BVHLoader11ChannelTypeESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %channelMap, ptr noundef %259)
+  %257 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN6Assimp9BVHLoader11ChannelTypeESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %channelMap, ptr noundef %257)
           to label %ehcleanup237 unwind label %terminate.lpad.i.i291
 
 terminate.lpad.i.i291:                            ; preds = %ehcleanup
-  %260 = landingpad { ptr, i32 }
+  %258 = landingpad { ptr, i32 }
           catch ptr null
-  %261 = extractvalue { ptr, i32 } %260, 0
-  call void @__clang_call_terminate(ptr %261) #24
+  %259 = extractvalue { ptr, i32 } %258, 0
+  call void @__clang_call_terminate(ptr %259) #24
   unreachable
 
 ehcleanup237:                                     ; preds = %ehcleanup, %lpad21

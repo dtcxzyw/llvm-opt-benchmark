@@ -25626,8 +25626,8 @@ if.end225:                                        ; preds = %for.end213, %invoke
   br i1 %.not, label %cond.false237, label %cond.true232
 
 cond.true232:                                     ; preds = %if.end225
-  %104 = insertelement <2 x i64> poison, i64 %call70, i64 0
-  %105 = insertelement <2 x i64> %104, i64 %call72, i64 1
+  %104 = insertelement <2 x i64> poison, i64 %call72, i64 0
+  %105 = insertelement <2 x i64> %104, i64 %call70, i64 1
   %106 = sitofp <2 x i64> %105 to <2 x double>
   %anim_fps229 = getelementptr inbounds i8, ptr %this, i64 440
   %107 = load <2 x double>, ptr %anim_fps229, align 8
@@ -25639,8 +25639,8 @@ cond.true232:                                     ; preds = %if.end225
 cond.false237:                                    ; preds = %if.end225
   %111 = load double, ptr %min_time, align 8
   %112 = load double, ptr %max_time, align 8
-  %113 = insertelement <2 x double> poison, double %111, i64 0
-  %114 = insertelement <2 x double> %113, double %112, i64 1
+  %113 = insertelement <2 x double> poison, double %112, i64 0
+  %114 = insertelement <2 x double> %113, double %111, i64 1
   br label %cond.end238
 
 cond.end238:                                      ; preds = %cond.false237, %cond.true232
@@ -25650,9 +25650,9 @@ cond.end238:                                      ; preds = %cond.false237, %con
   br i1 %cmp242307.not, label %for.cond283.preheader, label %for.body243.preheader
 
 for.body243.preheader:                            ; preds = %cond.end238
-  %117 = extractelement <2 x double> %115, i64 0
-  %118 = extractelement <2 x double> %115, i64 0
-  %119 = extractelement <2 x double> %115, i64 0
+  %117 = extractelement <2 x double> %115, i64 1
+  %118 = extractelement <2 x double> %115, i64 1
+  %119 = extractelement <2 x double> %115, i64 1
   br label %for.body243
 
 for.cond283.preheader:                            ; preds = %for.inc279, %cond.end238
@@ -25661,7 +25661,7 @@ for.cond283.preheader:                            ; preds = %for.inc279, %cond.e
   br i1 %cmp285311.not, label %for.end306, label %for.body286.preheader
 
 for.body286.preheader:                            ; preds = %for.cond283.preheader
-  %121 = extractelement <2 x double> %115, i64 0
+  %121 = extractelement <2 x double> %115, i64 1
   br label %for.body286
 
 for.body243:                                      ; preds = %for.body243.preheader, %for.inc279
@@ -25785,7 +25785,7 @@ for.inc304:                                       ; preds = %for.inc304.loopexit
 
 for.end306:                                       ; preds = %for.inc304, %for.cond283.preheader
   %shift = shufflevector <2 x double> %115, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %151 = fsub <2 x double> %shift, %115
+  %151 = fsub <2 x double> %115, %shift
   %sub307 = extractelement <2 x double> %151, i64 0
   store double %sub307, ptr %mDuration.i, align 8
   %anim_fps308 = getelementptr inbounds i8, ptr %this, i64 440
